@@ -1,0 +1,77 @@
+(function(){	
+
+//修改药品按钮
+			newClick('.mypharmacy_res_update',function(){
+				newAjax(MODULE+"/Medicine/getMedicineById",{
+					id:$(this).attr("medid")
+					},
+					function(msg){
+						if(msg['status']==1){
+							$('.update_id').val(msg['content'].id);
+							$('.update_name').val(msg['content'].name);
+							$('.update_phigh').val(msg['content'].phigh);
+							$('.update_plow').val(msg['content'].plow);
+						}else{
+							alert(msg['content']);
+						}	
+				})
+			});
+//确认修改按钮
+			newClick('.update_res_button',function(){
+				if($('.update_phigh').val()*1>$('.update_plow').val()*1){
+					newAjax(MODULE+"/Medicine/UpdateMedicine",{
+						id:$('.update_id').val(),
+						name:$('.update_name').val(),
+						phigh:$('.update_phigh').val(),
+						plow:$('.update_plow').val()
+					},function(msg){
+						if(msg['status']==1){
+							$(".tr_phigh_"+$('.update_id').val()).html($('.update_phigh').val());
+							$(".tr_plow_"+$('.update_id').val()).html($('.update_plow').val());
+						}else{
+							alert(msg['content']);
+						}
+					})
+				}else{
+					alert('修改内容不合法!');
+				}
+			});
+
+//搜索药品
+			$('html').on('click','.reservoir_search',function(){
+				if($('.pharmacy_res_search').val()!=''){
+					newAjax(MODULE+"/Medicine/getMedicineByWhere_pharmacy_res",{
+						name:$('.pharmacy_res_search').val()
+					},function(msg){
+						if(msg['status']==1){
+							$('.mybody').html(msg['content']);
+						}else{
+							alert(msg['content']);
+						}
+					})
+				}else{
+					newAjax(MODULE+"/Medicine/getPharmacy_res",'',function(msg){
+						if(msg['status']==1){
+								$('.mybody').html(msg['content']);
+							}else{
+								alert(msg['content']);
+							}
+					})
+				}
+			})
+//页码标签点击的ajax请求
+			newClick('.pharmacy_res_page>ul>li>a',function(){
+				var num=$(this).attr('num');
+				if(num){
+					newAjax(MODULE+"/Medicine/getPharmacy_res",{'p':num},function(msg){
+						if(msg['status']==1){
+								$('.mybody').html(msg['content']);
+							}else{
+								alert(msg['content']);
+							}
+					})
+				}
+			})
+
+}())
+

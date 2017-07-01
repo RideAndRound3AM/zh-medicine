@@ -1,0 +1,27 @@
+<foreach name="med" item="vo">
+<tr class="warning cloneTrNode">
+	<td style="width:20%">															
+		<select name="medname" class="chosen-select width-20" id="form-field-select-3" placeholder=~@$vo[name]@~>
+			
+				<option value=~@$vo[id]@~>~@$vo[name]@~</option>
+ 										
+		</select>
+	</td>
+	<td style="width:10%">
+		<div >
+			<input name="num" type="text" id="form-field-1" value=~@$vo[num]@~  class="input-small"/>
+		</div>
+	</td>
+	<td style="width:20%">
+		<select name="merchant" class="chosen-select width-20" id="form-field-select-3" data-placeholder="Choose">
+			<option value="">&nbsp;</option>
+			<foreach name="merchant" item="vo">
+				<option value=~@$vo[id]@~>~@$vo[name]@~</option>
+			</foreach> 
+		</select>
+	</td>
+	<td style="width:20%">
+			<button class="btn btn-default" id="remMedicine">删除</button>
+	</td>
+</tr>
+</foreach>				

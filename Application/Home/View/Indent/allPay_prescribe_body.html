@@ -1,0 +1,18 @@
+<!-- 处方模板 -->
+<form>
+	<foreach name="list_prescribe" item="vo">
+		<tr>
+			<td>~@$vo.prescribeid@~</td>
+			<td>~@$vo.ctime@~</td>
+			<td>~@$vo.diagnosis@~</td>
+			<td>~@$vo.num@~</td>
+			<td>
+				<button class="btn btn-default  btn-sm check_medicine_btn" data-toggle="modal"
+				 data-target="#check_medicine_prescribe" prescribeid="~@$vo.prescribeid@~">
+					查看药品
+				</button>
+			</td>
+		</tr>
+	</foreach>
+</form>
+	

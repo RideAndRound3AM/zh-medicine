@@ -1,0 +1,149 @@
+				<script type="text/javascript">
+						try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
+				</script>
+
+				<div class="main-content">
+					<div class="breadcrumbs" id="breadcrumbs">
+						<script type="text/javascript">
+							try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+						</script>
+
+						<ul class="breadcrumb">
+							<li>
+								<i class="icon-home home-icon"></i>
+								<a href="#">经验方设置</a>
+						</ul><!-- .breadcrumb -->
+
+						<div class="nav-search" id="nav-search">
+							<form class="form-search">
+								<span class="input-icon">
+									<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
+									<i class="icon-search nav-search-icon"></i>
+								</span>
+							</form>
+						</div><!-- #nav-search -->
+					</div>
+					<!-- 需要建立的表               设置经验方时用的-->
+					
+					<div class="page-content">
+						<form class="form-inline">
+							<div class='form-group col-md-10'>
+								<div>
+									经验方名称：<input  type="text"  placeholder='请设置经验方名称' id='exp' />
+								</div>
+								<br>
+								<div>
+									病&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;症：<input  type="text"  placeholder='请设置病症' id='ill' />
+								</div>
+								<br>
+								<div>
+									功&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;效：<input  type="text" placeholder='请设置功效' id='eff' />
+								</div>
+							</div>
+							<div class="form-group  col-md-2">
+								<button class="btn btn-default " id='allExp' data-toggle="modal" 
+										   data-target="#hirstyModal">
+										   查看所有经验方
+								</button>
+								<div class="modal fade" id="hirstyModal" tabindex="-1" role="dialog" 
+										   aria-labelledby="myModalLabel" aria-hidden="true">
+										   <div class="modal-dialog">
+										      <div class="modal-content">
+										         <div class="modal-header">
+										            <button type="button" class="close" 
+										               data-dismiss="modal" aria-hidden="true">
+										                  &times;
+										            </button>
+										            <h4 class="modal-title" id="myModalLabel">
+										              经验方
+										            </h4>
+										         </div>
+										         <div class="modal-body" id='modalbody'>
+										         	<table  class="table table-striped table-bordered table-hover table-condensed ">
+										            	<thead>
+											            	<tr>
+											            		<th>经验方名称</th>
+											            		<th>病症名</th>
+											            		<th>功效名</th>
+											            		<th>操作</th>
+											            	</tr>
+														</thead>
+													 	<tbody id='exptable'>
+													 	</tbody>
+													</table>
+										         </div>
+										         <div class="modal-footer">
+										            <button type="button" class="btn btn-default" 
+										               data-dismiss="modal">关闭
+										            </button>
+										            <button type="button" class="btn btn-primary">
+										               提交更改
+										            </button>
+										         </div>
+										      </div><!-- /.modal-content -->
+										</div><!-- /.modal -->
+										</div>
+							</div>
+						</form>
+						
+						<div class="hr hr-18 dotted hr-double"></div>
+						<br>
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+
+								<div class="row">
+									<div class=".col-xs-8">
+										<div class="table-responsive">
+											<form id='mess1'>
+											<table id="sample-table-1" class="table table-striped table-bordered table-hover table-condensed ">
+												<thead>
+													<tr class="success">	
+														<th>药品</th>
+														<th>剂量</th>
+														<th>备注</th>	
+													</tr>
+												</thead>
+
+												<tbody id='appTbody'>
+													<tr class="warning cloneTrNode" >
+														<td style="width:30%">
+															<select name='mid' class="chosen-select width-20 " id="form-field-select-3" data-placeholder="Choose">
+																<option  value="">&nbsp;</option>
+																<foreach name='medicine' item='m'>
+																	<option value=~@$m[id]@~ dosage=~@$m[dosage]@~>~@$m[name]@~</option>
+																</foreach>
+															</select>
+														</td>
+														<td style="width:30%">
+																	<div >
+																		<input name='num' type="text" id="form-field-1" placeholder="请输入剂量"  class="input-small"/>
+																	</div>
+														</td>	
+														<td style="width:30%">
+																	<div >
+																		<input name='remark' type="text" id="form-field-1"   class="input-sm"/>
+																	</div>
+														</td>
+													</tr>	
+												</tbody>
+											</table>
+											</form>
+											<button class="btn btn-default" id="addM">增加行</button>
+											<button class="btn btn-default" id="remM">删除行</button>
+										</div><!-- /.table-responsive -->
+									</div><!-- /span -->
+								</div><!-- /row -->
+
+								<div class="hr hr-18 dotted hr-double"></div>
+
+								<form class="form-horizontal">
+								  <div class="form-group">
+								    <div class="col-sm-offset-10 col-sm-2">
+								      <button type="button" class="btn btn-default" id='set'>创建经验方</button>
+								    </div>
+								  </div>
+								</form>
+								<script type="text/javascript">
+								var row=$('#appTbody').html();
+								</script>

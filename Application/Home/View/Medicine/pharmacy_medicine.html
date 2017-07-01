@@ -1,0 +1,215 @@
+
+
+				<!-- 导航，展示头部信息用的 -->
+
+				<div class="main-content">
+					<div class="breadcrumbs" id="breadcrumbs">
+						<script type="text/javascript">
+							try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+						</script>
+
+						<ul class="breadcrumb">
+							<li>
+								<i class="icon-home home-icon"></i>
+								<a href="#">药品产地和分类</a>
+							</li>
+						</ul><!-- .breadcrumb -->
+
+						
+					</div>
+
+					<div class="page-content">
+						
+
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+
+								
+
+								
+
+								<div class="row">
+									<div class="col-xs-12">
+										<h3 class="header smaller lighter blue">药品列表</h3>
+										<!-- <div class="table-header">
+											所有药品
+										</div> -->
+
+										<!-- 搜索框 -->
+										<div class="nav-search" id="nav-search">
+											<form class="form-search">
+												<span class="input-icon">
+													<input type="text" placeholder="Search ..." class="nav-search-input mysearch" id="nav-search-input" autocomplete="off" name="name"/>
+													<i class="icon-search nav-search-icon pharmacy_search"></i>
+												</span>
+											</form>
+										</div><!-- #nav-search -->
+
+										<div class="table-responsive">
+											<table id="sample-table-2" class="table table-striped table-bordered table-hover">
+												<thead>
+													<tr>
+														<th>药品名字</th>
+														<th >产地</th>
+														<th>分类</th>
+														<th>规格</th>
+														<th>修改</th>
+													</tr>
+												</thead>
+												<tbody>
+													<foreach name="med" item="vo">
+														<tr >
+															<td class='tr_name_~@$vo.id@~'>~@$vo.name@~</td>
+															<td class='tr_area_~@$vo.id@~'>~@$vo.area@~</td>
+															<td class='tr_sort_~@$vo.id@~'>~@$vo.sort@~</td>
+															<td class='tr_sort_~@$vo.id@~'>~@$vo.standard@~</td>
+															<td>
+																<div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+																	<a class="green myupdate" href="#update" data-toggle="modal" medid="~@$vo.id@~">
+																		<i class="icon-pencil bigger-130"></i>
+																	</a>
+															
+																	
+																</div>
+															</td>
+														</tr>
+													</foreach>
+													</tbody>
+													</table>
+													<div class="pharmacy_page" align='right'>~@$page@~</div>
+													<!-- 模态框（Modal） -->
+																	<div class="modal fade" id="update" tabindex="-1" role="dialog" 
+																	   aria-labelledby="myModalLabel" aria-hidden="true">
+																	   <div class="modal-dialog">
+																	      <div class="modal-content">
+																	        <div class="modal-header">
+																	            <button type="button" class="close" 
+																	               data-dismiss="modal" aria-hidden="true">
+																	                  &times;
+																	            </button>
+																	            <h4 class="modal-title" id="myModalLabel">
+																	               修改药品
+																	            </h4>
+																	        </div>
+																	        <div class="modal-body"><!-- 写input框，修改 -->
+																	         	<form class="form_update">
+																	         		<div class="row">
+
+																					<div class="form-group ">
+																					    <label for="form-exercise-4"></label><!-- laber绑定的id可以修改 -->
+																					    <input type="text" name="id" class="input-md width-80 update_id" value="" hidden="true">
+																					  </div>
+
+
+
+
+																					<div class="form-group ">
+																					    <label for="form-exercise-1">药品名称:</label><!-- laber绑定的id可以修改 -->
+																					    <input type="text" name="name" class="input-md width-80 update_name" value="川贝" disabled>
+																					  </div>
+																					
+																					  <div class="form-group ">
+																					    <label for="form-exercise-2">产地:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><!-- laber绑定的id可以修改 -->
+																					    <input type="text" name="area" class="input-md width-80 update_area" value="">
+																					  </div>
+																					  <div class="form-group  ">
+																					    <label for="form-exercise-3">分类:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><!-- laber绑定的id可以修改 -->
+																					    <input type="text" name="sort" class="input-md width-80 update_sort" value="">
+																					  </div>
+																					 
+																					</div>
+																				</form>
+
+
+																	           
+																	        </div>
+																	        <div class="modal-footer">
+																	            <button type="button" class="btn btn-default" 
+																	               data-dismiss="modal">关闭
+																	            </button>
+																	            <button type="button" class="btn btn-primary update_button"data-dismiss="modal" >
+																	               确认修改
+																	            </button>
+																	        </div>
+																	      </div><!-- /.modal-content -->
+																	</div><!-- /.modal -->
+																	</div>		
+														
+
+	
+
+
+											<button class="btn btn-primary btn-sm " data-toggle="modal" 
+											   data-target="#myModal">
+											   增加药品
+											</button>
+											<!-- 模态框（Modal） -->
+											<div class="modal fade" id="myModal" tabindex="-1" role="dialog" 
+											   aria-labelledby="myModalLabel" aria-hidden="true">
+											   <div class="modal-dialog">
+											      <div class="modal-content">
+											         <div class="modal-header">
+											            <button type="button" class="close" 
+											               data-dismiss="modal" aria-hidden="true">
+											                  &times;
+											            </button>
+											            <h4 class="modal-title" id="myModalLabel">
+											               增加药品
+											            </h4>
+											         </div>
+											         <div class="modal-body"><!-- 写input框，增加药品的名字产地，分类 -->
+											         	<form class="form_insert">
+											         		<div class="row">
+							
+															  <div class="form-group  ">
+															    <label for="form-exercise-1">药品名:</label><!-- laber绑定的id可以修改 -->
+															    <input type="text" name="name" class="input-md width-90 insert_name">
+															  </div>
+															  <div class="form-group ">
+															    <label for="form-exercise-2">产地:&nbsp;&nbsp;&nbsp;</label><!-- laber绑定的id可以修改 -->
+															    <input type="text" name="area" class="input-md width-90 insert_area">
+															  </div>
+															  <div class="form-group">
+															    <label for="form-exercise-3">分类:&nbsp;&nbsp;&nbsp;</label><!-- laber绑定的id可以修改 -->
+															    <input type="text" name="sort" class="input-md width-90 insert_sort">
+															  </div>
+															  <div class="form-group">
+															    <label for="form-exercise-4">规格:&nbsp;&nbsp;&nbsp;</label><!-- laber绑定的id可以修改 -->
+															    <input type="text" name="standard" class="input-md width-90 insert_standard">
+															  </div>
+															</div>
+														</form>
+
+
+											           
+											         </div>
+											         <div class="modal-footer">
+											            <button type="button" class="btn btn-default" 
+											               data-dismiss="modal">关闭
+											            </button>
+											            <button type="button" class="btn btn-primary insert_button" data-dismiss="modal">
+											               确认增加
+											            </button>
+											         </div>
+											      </div><!-- /.modal-content -->
+											</div><!-- /.modal -->
+											</div>
+										</div>
+									</div>
+								</div>
+
+
+							
+
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+					</div><!-- /.page-content -->
+				</div><!-- /.main-content -->
+
+
+
+
+
+
+       

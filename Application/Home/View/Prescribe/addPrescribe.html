@@ -1,0 +1,199 @@
+				<script type="text/javascript">
+						try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
+				</script>
+
+				<div class="main-content">
+					<div class="breadcrumbs" id="breadcrumbs">
+						<script type="text/javascript">
+							try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+						</script>
+
+						<ul class="breadcrumb">
+							<li>
+								<i class="icon-home home-icon"></i>
+								<a href="#">处方开单</a>
+						</ul><!-- .breadcrumb -->
+
+						<div class="nav-search" id="nav-search">
+							<form class="form-search">
+								<span class="input-icon">
+									<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
+									<i class="icon-search nav-search-icon"></i>
+								</span>
+							</form>
+						</div><!-- #nav-search -->
+					</div>
+					<!-- 需要建立的表                开处方时用的-->
+					
+					<div class="page-content">
+						<div class="page-header">
+							<h1>
+								处方表：
+							</h1>
+						</div><!-- /.page-header -->
+
+
+							<form class="form-inline">
+								   <div class="form-group col-md-6">
+								    <label for="tip-area" class="col-sm-2 control-label">病症：</label>
+								    <div class="col-sm-10 ">     
+								      <textarea id='diagnosis' class="form-control" rows="2" cols="12" id="tip-area" placeholder="在此添加信息"></textarea>
+								      <!-- 文本框宽度生效明天再看 -->
+								    </div>
+								  </div>
+									
+									  
+									  
+									  <div class="form-group col-md-4"><!-- 用模态框做 -->
+									    <button class="btn btn-default" id='his' data-toggle="modal" 
+										   data-target="#hirstyModal">
+										   查看病人历史处方
+										</button>
+										<!-- 模态框（Modal） -->
+										<div class="modal fade" id="hirstyModal" tabindex="-1" role="dialog" 
+										   aria-labelledby="myModalLabel" aria-hidden="true">
+										   <div class="modal-dialog">
+										      <div class="modal-content">
+										         <div class="modal-header">
+										            <button type="button" class="close" 
+										               data-dismiss="modal" aria-hidden="true">
+										                  &times;
+										            </button>
+										            <h4 class="modal-title" id="myModalLabel">
+										               历史处方
+										            </h4>
+										         </div>
+										         <div class="modal-body" id='modalbody'>
+										         	<table  class="table table-striped table-bordered table-hover table-condensed ">
+										            	<thead>
+											            	<tr>
+											            		<th>开方时间</th>
+											            		<th>病症</th>
+											            		<th>贴数</th>
+											            		<th>状态</th>
+											            		<th>缴费状态</th>
+											            		<th>操作</th>
+											            	</tr>
+														</thead>
+													 	<tbody id='histable'>
+													 	</tbody>
+													</table>
+										         </div>
+										         <div class="modal-footer">
+										            <button type="button" class="btn btn-default" 
+										               data-dismiss="modal">关闭
+										            </button>
+										            <button type="button" class="btn btn-primary">
+										               提交更改
+										            </button>
+										         </div>
+										      </div><!-- /.modal-content -->
+										</div><!-- /.modal -->
+										</div>
+									  </div>
+									
+									
+							
+								
+					
+							  
+							</form>
+
+						<br>
+						<br>
+						<div class="hr hr-18 dotted hr-double"></div>
+
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+
+								<div class="row">
+									<div class=".col-xs-8">
+										<div class="table-responsive">
+											<form action="" id='mess'>
+											<table id="sample-table-1" class="table table-striped table-bordered table-hover table-condensed ">
+												<thead>
+													<tr class="success">
+														
+														<th>药品</th>
+														<th>剂量(g)</th>
+														<th>备注</th>	
+													</tr>
+												</thead>
+
+												<tbody id='appendTbody'>
+													<tr class="warning cloneTrNode" >
+														<td style="width:30%">
+															<select name='mid' class="chosen-select width-20 sele" id="form-field-select-3" data-placeholder="Choose">
+																<option  value="">&nbsp;</option>
+																<foreach name='medicine' item='m'>
+																	<option value=~@$m[id]@~ dosage=~@$m[dosage]@~>~@$m[name]@~</option>
+																</foreach>
+															</select>
+														</td>
+														
+
+														<td style="width:30%">
+
+																	<div >
+																		<input name='num' type="text" id="form-field-1" placeholder="请输入剂量"  class="input-small"/>
+																	</div>
+
+														</td>
+														
+														<td style="width:30%">
+
+																	<div >
+																		<input name='remark' type="text" id="form-field-1"   class="input-sm"/>
+																	</div>
+
+														</td>
+														
+													</tr>
+
+													
+
+													
+
+
+
+
+
+													
+												</tbody>
+											</table>
+											</form>
+											<button class="btn btn-default" id="addMed">增加行</button>
+											<button class="btn btn-default" id="remMed">删除行</button>
+										</div><!-- /.table-responsive -->
+									</div><!-- /span -->
+								</div><!-- /row -->
+
+								<div class="hr hr-18 dotted hr-double"></div>
+								<!-- 以下为测试代码 -->
+					
+		
+
+
+								<!-- 备注和贴数 -->
+
+								<form class="form-horizontal">
+								  <div class="form-group">
+								    <label for="medinetip-1" class="col-sm-2 control-label">总贴数：</label>
+								    <div class="col-sm-10">
+								      <input type="text" name="" class="input-sm" id='total'>
+								    </div>
+								  </div>
+								  
+								  
+								  <div class="form-group">
+								    <div class="col-sm-offset-2 col-sm-10">
+								      <button type="button" class="btn btn-default" id='sub'>生成订单</button>
+								    </div>
+								  </div>
+								</form>
+
+、
+							
+					</div><!-- /.page-content -->
+				</div><!-- /.main-content -->

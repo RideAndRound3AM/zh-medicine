@@ -1,0 +1,149 @@
+<!-- 导航，展示头部信息用的 -->
+
+				<div class="main-content">
+					<div class="breadcrumbs" id="breadcrumbs">
+						<script type="text/javascript">
+							try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+						</script>
+
+						<ul class="breadcrumb">
+							<li>
+								<i class="icon-home home-icon"></i>
+								<a href="#">药品入库</a>
+							</li>
+
+						</ul><!-- .breadcrumb -->
+
+						
+					</div>
+
+					<div class="page-content">
+						
+
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+
+
+								<div class="row">
+									<div class="col-xs-12">
+
+										<!--搜索框-->
+										
+					<!-- 需要建立的表                开处方时用的-->
+					
+					<div class="page-content">
+						<div class="page-header">
+							<h1>
+								药品入库
+							</h1>
+						</div><!-- /.page-header -->
+
+						<div class="row">
+							<div class="col-xs-12">
+								<div class="row">
+									<div class=".col-xs-8">
+										<div class="table-responsive">
+											<form id="inwarehouse-med" action="">
+											<table id="sample-table-1" class="table table-striped table-bordered table-hover table-condensed ">
+												<thead>
+													<th>入库单id</th>		
+													<th>采购单id</th>								
+													<th>入库人员</th>
+													<th>入库时间</th>
+													<th>发票号</th>				
+													<th>详情</th>
+													
+												</thead>
+												<script type="text/javascript">
+													var str=$(".apply-body").html();
+												</script>
+												<tbody id='appendTbody'>
+												<foreach name="inwarehouse" item="vo">
+													<tr class="warning">
+														<td style="width:10%">
+															<div >
+																<input type="text" id="form-field-1" placeholder=~@$vo[id]@~  class="width-60 input-small" disabled>
+															</div>
+														</td>
+														<td style="width:10%">
+															<div >
+																<input type="text" id="form-field-1" placeholder=~@$vo[bid]@~  class="width-60 input-small" disabled>
+															</div>
+														</td>
+														<td style="width:10%">
+															<div >
+																<input type="text" id="form-field-1" placeholder=~@$vo[name]@~  class="width-60 input-small" disabled>
+															</div>
+														</td>
+														<td style="width:10%">
+															<div >
+																<input type="text" id="form-field-1" placeholder=~@$vo[ctime]@~  class="width-60 input-small" disabled>
+															</div>
+														</td>
+														<td style="width:10%">
+															<div >
+																<input type="text" id="form-field-1" placeholder=~@$vo[invoice]@~ class="width-60 input-small" disabled>
+															</div>
+														</td>																																	
+														<td style="width:10%">
+															 <form class="form-inline">
+																 <div class="form-group col-md-offset-8"><!-- 用模态框做 -->
+																    <button class="btn btn-default inwarehouse-details" data-toggle="modal" 
+																	   data-target="#inwarehouse-medicine" inwarehouse-id=~@$vo[id]@~>
+																	   		详情
+																	</button>
+																	<!-- 模态框（Modal） -->
+																	<div class="modal fade" id="inwarehouse-medicine" tabindex="-1" role="dialog" 
+																	   aria-labelledby="myModalLabel" aria-hidden="true">
+																	   <div class="modal-dialog">
+																	      <div class="modal-content">
+																	         <div class="modal-header">
+																	            <button type="button" class="close" 
+																	               data-dismiss="modal" aria-hidden="true">
+																	                  &times;
+																	            </button>
+																	            <h4 class="modal-title all-details" id="myModalLabel">
+																	            	入库单详情
+																	            </h4>
+																	         <div class="modal-body buy-detail">       
+																	         
+																	         </div>
+																	         </div>       
+																	      
+																	      </div><!-- /.modal-content -->
+																		</div><!-- /.modal -->
+																	</div>
+																  </div>
+								  
+															</form>
+														</td>
+													</tr>
+													</foreach>								
+												</tbody>				
+											</table>
+											</form>
+											<button type="button" class="btn btn-default add-inwarehouse">药品入库</button>						
+										</div><!-- /.table-responsive -->
+									</div><!-- /span -->
+								</div><!-- /row -->
+
+								<div class="hr hr-18 dotted hr-double"></div>
+								<!-- 以下为测试代码 -->		
+								<!-- 备注和贴数 -->
+
+			
+											</div>
+									</div>
+								</div>
+								</div>
+							
+
+			
+
+								</div>
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+					</div><!-- /.page-content -->
+				</div><!-- /.main-content -->													
+				

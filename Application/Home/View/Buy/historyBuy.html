@@ -1,0 +1,25 @@
+<table id="sample-table-1" class="table table-striped table-bordered table-hover table-condensed need-medicines">
+<thead>											
+		<th>药品名</th>
+		<th>数量</th>
+</thead>
+<tbody>
+<foreach name="medicines" item="vo">
+		<tr class="warning cloneTrNode">
+			<td style="width:10%">
+				<div >
+					<input name=~@$vo[name]@~ type="text" id="form-field-1" placeholder=~@$vo[name]@~  class="input-small medname"/>
+				</div>
+			</td>													
+			<td style="width:10%">
+				<div >
+					<input num=~@$vo[buynum]@~ type="text" id="form-field-1" placeholder=~@$vo[buynum]@~  class="input-small mednum"/>
+				</div>
+			</td>
+		</tr>
+	</foreach>
+</tbody>
+</table>	
+<button type="button" class='btn btn-default load-buy'>导入</button>
+<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+	

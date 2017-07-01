@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>中医药管理系统登录</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- basic styles -->
+
+		<link href="__PUBLIC__/assets/css/bootstrap.min.css" rel="stylesheet" />
+		
+		
+		
+		<link rel="stylesheet" href="__PUBLIC__/assets/css/font-awesome.min.css" />
+		<!--[if IE 7]>
+		  <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css" />
+		<![endif]-->
+
+		<!-- page specific plugin styles -->
+
+		<!-- fonts -->
+
+		<!-- <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" /> -->
+
+		<!-- ace styles -->
+
+		<link rel="stylesheet" href="__PUBLIC__/assets/css/ace.min.css" />
+		<link rel="stylesheet" href="__PUBLIC__/assets/css/ace-rtl.min.css" />
+
+		<!--[if lte IE 8]>
+		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+		<![endif]-->
+
+		<!-- inline styles related to this page -->
+
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+		<!--[if lt IE 9]>
+		<script src="assets/js/html5shiv.js"></script>
+		<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+	</head>
+
+	<body class="login-layout">
+		<div class="main-container">
+			<div class="main-content">
+				<div class="row">
+					<div class="col-sm-10 col-sm-offset-1">
+						<div class="login-container">
+							<div class="center">
+								<h1>
+									<i class="icon-leaf green"></i>
+									<span class="red">中药</span>
+									<span class="blue">药品系统</span>
+								</h1>
+								<h4 class="blue">&copy; Super Company</h4>
+							</div>
+
+							<div class="space-6"></div>
+
+							<div class="position-relative">
+								<div id="login-box" class="login-box visible widget-box no-border">
+									<div class="widget-body">
+										<div class="widget-main">
+											<h4 class="header blue lighter bigger">
+												<i class="icon-coffee green"></i>
+												请填写您的账户
+											</h4>
+
+											<div class="space-6"></div>
+
+											<form method="post" action="__URL__/login" class="sss">
+												<fieldset>
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="text" class="form-control myname" placeholder="帐号"  name="name"/>
+															<div class="inforwarning red">&nbsp;</div>
+															<i class="icon-user"></i>
+														</span>
+													</label>
+
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="password" class="form-control mypassword" placeholder="密码" name="password"/>
+															<i class="icon-lock"></i>
+														</span>
+													</label>
+
+													<div class="space"></div>
+
+													<div class="clearfix">
+														<label class="inline">
+															<input type="checkbox" class="ace"/>
+															<span class="lbl"> 记住我</span>
+														</label>
+
+														<button type="button" class="ssss width-35 pull-right btn btn-sm btn-primary">
+															<i class="icon-key"></i>
+															登录
+														</button>
+													</div>
+
+													<div class="space-4"></div>
+												</fieldset>
+											</form>
+
+										</div><!-- /widget-main -->
+
+										
+								<!-- 以下删除 -->
+
+
+							</div><!-- /position-relative -->
+						</div>
+					</div><!-- /.col -->
+				</div><!-- /.row -->
+			</div>
+		</div><!-- /.main-container -->
+
+		<!-- basic scripts -->
+
+		<!--[if !IE]> -->
+
+		<script src="__PUBLIC__/assets/js/jquery-1.10.2.min.js"></script>
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<![endif]-->
+
+		<!--[if !IE]> -->
+
+		<script type="text/javascript">
+			window.jQuery || document.write("<script src='__PUBLIC__/assets/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
+		</script>
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+<script type="text/javascript">
+ window.jQuery || document.write("<script src='assets/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
+</script>
+<![endif]-->
+
+		<script type="text/javascript">
+			if("ontouchend" in document) document.write("<script src='__PUBLIC__/assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+		</script>
+
+		<!-- inline scripts related to this page -->
+
+		<script type="text/javascript">
+			function show_box(id) {
+			 jQuery('.widget-box.visible').removeClass('visible');
+			 jQuery('#'+id).addClass('visible');
+			}
+		</script>
+	<script src="__PUBLIC__/js/jquery-cookie.js"></script>
+	<script type="text/javascript">
+		var bol=0;
+		$(".ssss").on("click",function(){
+			if(bol==1){//如果通过进行下一步。
+				$(".sss").get(0).submit();
+				//获取到当前时间
+				var expiresDate= new Date();
+					$.cookie('password',"",{
+	  	 			path : '/',//cookie的作用域
+	 				expires : expiresDate
+				});
+				var rs = $('.ace').attr('checked');//获取checked属性的值
+				if ($('.ace').prop('checked') == 1){
+					//设置保存到cookie的时间
+						expiresDate.setTime(expiresDate.getTime() + 1*60*1000);
+					//取到用户名 和 密码
+					var name = $(".myname").val();
+					var psw = $(".mypassword").val();
+						$.cookie('name',name,{
+		  				path : '/',//cookie的作用域
+		 				expires : expiresDate
+					});
+						$.cookie('password',psw,{
+		  	 			path : '/',//cookie的作用域
+		 				expires : expiresDate
+					});
+				}
+			}
+		})
+		//从cookie里面获取到对应的值。
+		var uname = $.cookie('name'); 
+		var pwd = $.cookie('password');
+		if(uname!='' && pwd!='' ){ //如果没有 就存入
+			$(".myname").val(uname);
+			$(".mypassword").val(pwd);
+			$('.ace')[0].checked=false;
+			bol=1;
+			//$(".sss").submit();
+		}
+	//检测用户格式
+		$('.myname').on('change',function TagName(){
+			var str = $(".myname").val();
+			var reg = /^[a-z0-9A-Z]{5,20}$/;
+			if(!reg.test(str)){
+				$(".inforwarning").html("你输入的格式有误")
+			}else{
+				bol=1;
+				$(".inforwarning").html("");
+			}
+		})
+		$("body").css({
+			'background-image':"url('__PUBLIC__/image/ooo.jpg')"
+		});
+		$('#login-box').animate({'opacity':'0.8'});
+		$("body").css("background-size","100% 100%");
+	</script>
+</body>
+</html>

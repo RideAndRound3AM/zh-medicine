@@ -1,0 +1,25 @@
+<foreach name="med" item="vo">
+<tr class="warning">
+		<td style="width:20%">
+			<select name="mid" class="chosen-select width-20" id="form-field-select-3" data-placeholder=~@$vo[name]@~ >
+				<!-- <foreach name="medicine" item="g">
+				 	<option value=~@$g[id]@~>~@$g[name]@~</option>
+				</foreach> -->
+				<option value=~@$vo[id]@~>~@$vo[name]@~</option>
+			</select>
+		</td>												
+		<td style="width:10%">
+			<div >
+				<input name="num" type="text" id="form-field-1" placeholder="请输入数量"  class="input-small"/>
+			</div>
+		</td>
+		<td style="width:10%">
+			<div >
+				<input type="text" id="form-field-1" placeholder=~@$vo[standard]@~  class="input-small" disabled>
+			</div>
+		</td>
+		<td style="width:10%">
+			<button class="btn btn-default remMedine">删除</button>
+		</td>
+	</tr>
+</foreach>			

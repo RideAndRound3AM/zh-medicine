@@ -1,0 +1,37 @@
+<table id="sample-table-1" class="table table-striped table-bordered table-hover table-condensed need-medicines">
+<thead>	
+		<th hidden="true">id</th>										
+		<th>药品名</th>
+		<th>数量</th>
+		<th>规格</th>
+</thead>
+<tbody>
+<foreach name="med" item="vo">
+		<tr class="warning cloneTrNode">
+			<td hidden="true">
+				<div >
+					<input name="id" type="text" id="form-field-1" value=~@$vo[id]@~  class="input-small medicine-id"/>
+				</div>
+			</td>
+			<td style="width:10%">
+				<div >
+					<input name="name" type="text" id="form-field-1" value=~@$vo[name]@~  class="input-small medicine-name"/>
+				</div>
+			</td>													
+			<td style="width:10%">
+				<div >
+					<input num="num" type="text" id="form-field-1" value=~@$vo[num]@~  class="input-small medicine-num"/>
+				</div>
+			</td>
+			<td style="width:10%">
+				<div >
+					<input type="text" id="form-field-1" value=~@$vo[standard]@~  class="input-small">
+				</div>
+			</td>
+		</tr>
+	</foreach>
+</tbody>
+</table>	
+<button type="button" class='btn btn-default load-need' needid=~@$needid@~>导入</button>
+ <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+	

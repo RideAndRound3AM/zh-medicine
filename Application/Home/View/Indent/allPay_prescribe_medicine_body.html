@@ -1,0 +1,11 @@
+<!-- 药品模板 -->
+<form>
+	<foreach name="list_prescribe_medicine" item="vo">
+		<tr>
+			<td>~@$vo.medname@~</td>
+			<td>~@$vo.dosage@~</td>
+		</tr>
+	</foreach>
+</form>
+<div class="all_medicine_pagecut" prescribe_id="~@$vo.prescribeid@~" align='right'>~@$page@~</div>
+	

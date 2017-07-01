@@ -1,0 +1,37 @@
+<foreach name="medicineInfo" item="ge">
+	<tr class="warning cloneTrNode">
+		<td style="width:10%">
+			<div >
+				<input name="batch" type="text" id="form-field-1" value=""  class="input-small"/>
+			</div>
+		</td>
+		<td style="width:10%">														
+			<select name="medid" class="chosen-select width-20">
+				
+					<option value=~@$ge[medid]@~>~@$ge[medname]@~</option>
+													
+			</select>
+		</td>
+		<td style="width:10%">
+			<div >
+				<input name="price" type="text" id="form-field-1" value=""  class="input-small"/>
+			</div>
+		</td>
+		<td style="width:10%">
+			<div >
+				<input name="realitynum" type="text" id="form-field-1" value=~@$ge[buynum]@~  class="input-small"/>
+			</div>
+		</td>
+		<td style="width:20%">
+			<select name="merid" class="chosen-select width-20" >
+				
+			
+					<option value=~@$ge[merid]@~>~@$ge[mername]@~</option>
+			
+			</select>
+		</td>
+		<td style="width:20%">
+			<button class="btn btn-default" id="remInwarehouse">删除</button>
+		</td>
+	</tr>				
+</foreach>										

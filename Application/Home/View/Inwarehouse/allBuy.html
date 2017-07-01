@@ -1,0 +1,41 @@
+<table id="sample-table-1" class="table table-striped table-bordered table-hover table-condensed ">
+<thead>											
+		<th>采购单id</th>
+		<th>药品名称</th>
+		<th>采购数量</th>
+		<th>供货商</th>
+		<th>状态</th>
+</thead>
+<tbody>
+<foreach name="buy" item="ne">
+<tr class="warning">
+		<td style="width:10%" id=~@$ne[id]@~>
+			<div >
+				<input type="text" id="form-field-1" placeholder=~@$ne[bid]@~  class="input-small"/>
+			</div>
+		</td>											
+		<td style="width:10%">
+			<div >
+				<input type="text" id="form-field-1" placeholder=~@$ne[medname]@~  class="input-small">
+			</div>
+		</td>
+		<td style="width:10%">
+			<div >
+				<input type="text" id="form-field-1" placeholder=~@$ne[buynum]@~  class="input-small">
+			</div>
+		</td>
+		<td style="width:10%">
+			<div >
+				<input type="text" id="form-field-1" placeholder=~@$ne[mername]@~  class="input-small"/>
+			</div>
+		</td>
+		<td style="width:10%">
+			<div >
+				<input type="text" id="form-field-1" placeholder=~@$ne[status]@~  class="input-small"/>
+			</div>
+		</td>
+	</tr>
+</foreach>	
+</tbody>
+</table>
+<button type="button" class="btn btn-default lead-buy" data-dismiss="modal" inw-buy-id=~@$ne[bid]@~>导入</button>	

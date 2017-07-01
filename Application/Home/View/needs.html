@@ -1,0 +1,38 @@
+<table id="sample-table-1" class="table table-striped table-bordered table-hover table-condensed ">
+<thead>											
+		<th>申领单id</th>
+		<th>申领部门</th>
+		<th>申领用户id</th>
+		<th>申领状态</th>
+		<th>查看详情</th>
+</thead>
+<tbody>
+<foreach name="needs" item="ne">
+<tr class="warning">
+		<td style="width:10%" id=~@$ne[id]@~>
+			<div >
+				<input type="text" id="form-field-1" placeholder=~@$ne[id]@~  class="input-small"/>
+			</div>
+		</td>											
+		<td style="width:10%">
+			<div >
+				<input type="text" id="form-field-1" placeholder=~@$ne[department]@~  class="input-small">
+			</div>
+		</td>
+		<td style="width:10%">
+			<div >
+				<input type="text" id="form-field-1" placeholder=~@$ne[uid]@~  class="input-small">
+			</div>
+		</td>
+		<td style="width:10%">
+			<div >
+				<input type="text" id="form-field-1" placeholder=~@$ne[status]@~  class="input-small"/>
+			</div>
+		</td>
+		<td style="width:10%">
+			<div class="btn btn-default look">查看详情</div>
+		</td>
+	</tr>
+</foreach>	
+</tbody>
+</table>	

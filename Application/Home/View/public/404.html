@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>404</title>
+	<style type="text/css">
+	 html body{
+			background-color:#607d8b;
+		}
+	   .notfound{
+	   	font-family: '微软雅黑';
+	   	font-size: 50px;
+	   	text-align: center;
+	   	color: white;
+	   }
+	   .fof{
+		width: 800px;
+		height: 450px;
+		text-align: center;
+		margin: 0 auto;
+	}
+       .jump{
+   	    font-size: 20px;
+   	    text-align: center;
+   	    color:white;
+   }
+	</style>
+</head>
+<body>
+	<div class="fof">
+		<img src="__PUBLIC__/image/a.jpg">
+	</div>
+	<div class="notfound">抱歉，没有找到哦！
+	</div>
+	<div class="jump"><span class="num">5</span>秒后自动跳转到登录页面...
+	</div>
+	<script type="text/javascript">
+		
+		var t=5;
+		var abc=setInterval("refer()",1000);//启动时间定时5秒
+			function refer(){
+				if(t==0){
+				clearInterval(abc);//清除
+				location.href = "http://localhost/medicine"	;		
+			}
+			document.getElementsByClassName('num')[0].innerHTML=t; 
+				t--;
+		}
+	</script>
+</body>
+</html>

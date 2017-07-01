@@ -1,0 +1,74 @@
+(function(){	
+
+//修改药品按钮
+			newClick('.mydoctor_update',function(){
+				newAjax(MODULE+"/Medicine/getMedicineById",{
+					id:$(this).attr("medid")
+					},
+					function(msg){
+						if(msg['status']==1){
+							$('.update_id').val(msg['content'].id);
+							$('.update_name').val(msg['content'].name);
+							$('.update_way').val(msg['content'].way);
+							$('.update_dosage').val(msg['content'].dosage);
+						}else{
+							alert(msg['content']);
+						}	
+				})
+			});
+//确认修改按钮
+			newClick('.doctor_update_button',function(){
+				newAjax(MODULE+"/Medicine/UpdateMedicine",{
+						id:$('.update_id').val(),
+						name:$('.update_name').val(),
+						way:$('.update_way').val(),
+						dosage:$('.update_dosage').val()
+					},function(msg){
+						if(msg['status']==1){
+							$(".tr_way_"+$('.update_id').val()).html($('.update_way').val());
+							$(".tr_dosage_"+$('.update_id').val()).html($('.update_dosage').val());
+						}else{
+							alert(msg['content']);
+						}
+					})
+			});
+
+//搜索药品
+			$('html').on('click','.doctor_search',function(){
+				if($('.mydoctor_search').val()!=''){
+					newAjax(MODULE+"/Medicine/getMedicineByWhere_doctor",{
+						name:$('.mydoctor_search').val()
+					},function(msg){
+						if(msg['status']==1){
+							$('.mybody').html(msg['content']);
+						}else{
+							alert(msg['content']);
+						}
+					})
+				}else{
+					newAjax(MODULE+"/Medicine/getMedicine_doctor",'',function(msg){
+						if(msg['status']==1){
+								$('.mybody').html(msg['content']);
+							}else{
+								alert(msg['content']);
+							}
+					})
+				}
+			})
+
+//页码标签点击的ajax请求
+			newClick('.doctor_page>ul>li>a',function(){
+				var num=$(this).attr('num');
+				if(num){
+					newAjax(MODULE+"/Medicine/getMedicine_doctor",{'p':num},function(msg){
+						if(msg['status']==1){
+								$('.mybody').html(msg['content']);
+							}else{
+								alert(msg['content']);
+							}
+					})
+				}
+			})
+
+}())
+

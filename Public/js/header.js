@@ -1,0 +1,23 @@
+(function(){
+//左侧列表的点击事件
+	newClick('.mylist',function(){
+		newAjax(MODULE+'/'+$(this).attr('fun'),"",function(msg){
+			if(msg['status']==1){
+				$('.mybody').html(msg['content']);
+				$('.chosen-select').chosen();
+			}else{
+				alert(msg['content']);
+			}
+		});
+	});
+//退出登录点击事件
+	newClick('.signOut',function(){
+		newAjax(MODULE+'/Index/signOut','',function(msg){
+			if(msg['status']==1){
+				window.location=MODULE;
+			}else{
+				alert(msg['content']);
+			}
+		});
+	});
+}());

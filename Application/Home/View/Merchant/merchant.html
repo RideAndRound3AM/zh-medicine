@@ -1,0 +1,193 @@
+<!-- 导航，展示头部信息用的 -->
+
+				<div class="main-content">
+					<div class="breadcrumbs" id="breadcrumbs">
+						<script type="text/javascript">
+							try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+						</script>
+
+						<ul class="breadcrumb">
+							<li>
+								<i class="icon-home home-icon"></i>
+								<a href="#">供货商信息</a>
+							</li>
+						</ul><!-- .breadcrumb -->
+
+						
+					</div>
+
+					<div class="page-content">
+						
+
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+
+
+								<div class="row">
+									<div class="col-xs-12">
+										<h3 class="header smaller lighter blue">供应商</h3>
+
+										<!--搜索框-->
+										<div class="nav-search" id="nav-search">
+											<form class="form-search">
+												<span class="input-icon">
+													<input type="text" placeholder="Search ..." class="nav-search-input mymerchant_search" id="nav-search-input" autocomplete="off" />
+													<i class="icon-search nav-search-icon merchant_search"></i>
+												</span>
+											</form>
+										</div><!-- #nav-search -->
+
+										<div class="table-responsive">
+											<table id="sample-table-2" class="table table-striped table-bordered table-hover">
+												<thead>
+													<tr>
+														<th>供应商</th>
+														<th>开户银行</th>
+														<th >银行账号</th>
+														<th>修改</th>
+													</tr>
+												</thead>
+												<tbody>
+													<foreach name="mer" item="vo">
+														<tr><!-- 当归 -->
+															<td class='tr_mer_name_~@$vo.id@~'>~@$vo.name@~</td>
+															<td class='tr_mer_bankname_~@$vo.id@~'>~@$vo.bankname@~</td>
+															<td class='tr_mer_bankid_~@$vo.id@~'>~@$vo.bankid@~</td>
+
+															<td>
+																<div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+																	
+																	<a class="green mymerchant_update" merid="~@$vo.id@~">
+																		<i class="icon-pencil bigger-130" data-target="#mymerchant_update" data-toggle="modal"></i>
+																	</a>
+
+																	
+																</div>
+
+															</td>
+														</tr><!-- 当归 -->
+													</foreach>		
+												</tbody>
+											</table>
+											<div class="merchant_page" align='right'>~@$page@~</div>
+											<button class="btn btn-primary btn-sm" data-toggle="modal" 
+											   data-target="#myModal">
+											   增加供应商
+											</button>
+
+											<!-- 修改模态框（Modal） -->
+											<div class="modal fade" id="mymerchant_update" tabindex="-1" role="dialog" 
+											   aria-labelledby="myModalLabel" aria-hidden="true">
+											   <div class="modal-dialog">
+											      <div class="modal-content">
+											         <div class="modal-header">
+											            <button type="button" class="close" 
+											               data-dismiss="modal" aria-hidden="true">
+											                  &times;
+											            </button>
+											            <h4 class="modal-title" id="myModalLabel">
+											               修改供应商信息
+											            </h4>
+											         </div>
+											         <div class="modal-body container-fluid"><!-- 写input框，增加药品的名字产地，分类 -->
+											         	<form class="form-horizontal">
+											         		<div class="">
+
+											         		  <div class="form-group ">
+																<label for="form-exercise-4"></label><!--laber绑定的id可以修改 -->
+																<input type="text" name="id" class="input-md width-80 mymerchant_update_id" value="" hidden="true">
+															  </div>
+							
+															  <div class="form-group  ">
+															    <label for="form-exercise-1">供应商:&nbsp;&nbsp;&nbsp;</label><!-- laber绑定的id可以修改 -->
+															    <input type="text" name="name" class="input-md width-80 mymerchant_update_name">
+															  </div>
+															  <div class="form-group ">
+															    <label for="form-exercise-3">开户银行:</label><!-- laber绑定的id可以修改 -->
+															    <input type="text" name="bankname" class="input-md width-80 mymerchant_update_bankname">
+															  </div>
+															  <div class="form-group  ">
+															    <label for="form-exercise-2">银行账号:</label><!-- laber绑定的id可以修改 -->
+															    <input type="text" name="bankid" class=" input-md width-80 mymerchant_update_bankid">
+															  </div>
+															 
+															</div>
+														</form>
+
+
+											           
+											         </div>
+											         <div class="modal-footer">
+											            <button type="button" class="btn btn-default" 
+											               data-dismiss="modal">关闭
+											            </button>
+											            <button type="button" class="btn btn-primary mymerchant_update_btn" data-dismiss="modal">
+											               确认修改
+											            </button>
+											         </div>
+											      </div><!-- /.modal-content -->
+											</div><!-- /.modal -->
+											</div>
+
+											<!-- 增加模态框（Modal） -->
+											<div class="modal fade" id="myModal" tabindex="-1" role="dialog" 
+											   aria-labelledby="myModalLabel" aria-hidden="true">
+											   <div class="modal-dialog">
+											      <div class="modal-content">
+											         <div class="modal-header">
+											            <button type="button" class="close" 
+											               data-dismiss="modal" aria-hidden="true">
+											                  &times;
+											            </button>
+											            <h4 class="modal-title" id="myModalLabel">
+											               增加供应商
+											            </h4>
+											         </div>
+											         <div class="modal-body container-fluid"><!-- 写input框，增加药品的名字产地，分类 -->
+											         	<form class="form-horizontal">
+											         		<div class="">
+							
+															  <div class="form-group  ">
+															    <label for="form-exercise-1">供应商:&nbsp;&nbsp;&nbsp;</label><!-- laber绑定的id可以修改 -->
+															    <input type="text" name="name" class="input-md width-80 mymerchant_add_name">
+															  </div>
+															  <div class="form-group ">
+															    <label for="form-exercise-3">开户银行:</label><!-- laber绑定的id可以修改 -->
+															    <input type="text" name="bankname" class="input-md width-80 mymerchant_add_bankname">
+															  </div>
+															  <div class="form-group  ">
+															    <label for="form-exercise-2">银行账号:</label><!-- laber绑定的id可以修改 -->
+															    <input type="text" name="bankid" class=" input-md width-80 mymerchant_add_bankid">
+															  </div>
+															 
+															</div>
+												</form>
+
+
+											           
+											         </div>
+											         <div class="modal-footer">
+											            <button type="button" class="btn btn-default" 
+											               data-dismiss="modal">关闭
+											            </button>
+											            <button type="button" class="btn btn-primary mymerchant_insert" data-dismiss="modal">
+											               确认增加
+											            </button>
+											         </div>
+											      </div><!-- /.modal-content -->
+											</div><!-- /.modal -->
+											</div>
+
+
+										</div>
+									</div>
+								</div>
+
+			
+
+
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+					</div><!-- /.page-content -->
+				</div><!-- /.main-content -->
